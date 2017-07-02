@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="renderer" content="webkit">
+  <title>北京国际摄影周</title>
+
+  <link href="{CSS_PATH}syz/css/clear.css" rel="stylesheet">
+  <link href="{CSS_PATH}syz/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{CSS_PATH}syz/css/idangerous.swiper.css">
+  <link rel="stylesheet" type="text/css" href="{CSS_PATH}syz/css/lytebox.css">
+  <link href="{CSS_PATH}syz/css/syzStyle.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="{CSS_PATH}syz/bootstrap/js/html5shiv.min.js"></script>
+  <script src="{CSS_PATH}syz/bootstrap/js/respond.min.js"></script>
+  <![endif]-->
+  </head>
+<body>
+
+<!-- 页头导航2 -->
+
+
+<!-- 联系我们 -->
+<div class="bjgjsyz-lxwm">
+
+  <div class="banner-style new-edition-banner">
+    <img class="pc-pic" src="{IMG_PATH}syz/images/sl-bjgjsyz-lxwm-pcbanner.jpg">
+    <img class="m-pic" src="{IMG_PATH}syz/images/sl-bjgjsyz-lxwm-pcbanner.jpg">
+    <div class="headline">
+      <p class="tit-eg">Contact</p>
+      <h3 class="tit-ch"><span>联系我们</span></h3>
+      <p class="tit-i">Photo Beijing 2017</p>
+    </div>
+  </div>
+
+  <div class="bjgjsyz-lxwm-main container">
+    <div class="titBox">
+      <h4 class="tit-h4">联系我们</h4>
+      <p class="tit-eg">Contact</p>
+    </div>
+    <div class="information clearfix">
+      <ul>
+        <li class="tit-li">联系我们</li>
+        <li class="txt">北京国际摄影周组委会办公室</li>
+        <li class="txt">地址：北京市海淀区复兴路甲9号 邮编100038</li>
+        <li class="txt">电话：86-10-84187929 </li>
+        <li class="txt">邮箱：photobeijing@gehua.com</li>
+      </ul>
+      <ul>
+        <li class="tit-li">商务合作</li>
+        <li class="txt">北京国际摄影周组委会办公室</li>
+        <li class="txt">地址：北京市海淀区复兴路甲9号 邮编100038</li>
+        <li class="txt">电话：86-10-84187929 </li>
+        <li class="txt">邮箱：photobeijing@gehua.com</li>
+      </ul>
+      <ul>
+        <li class="tit-li">媒体合作</li>
+        <li class="txt">北京国际摄影周组委会办公室</li>
+        <li class="txt">地址：北京市海淀区复兴路甲9号 邮编100038</li>
+        <li class="txt">电话：86-10-84187929 </li>
+        <li class="txt">邮箱：photobeijing@gehua.com</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- 工具、分享 -->
+<div class="toolbar-r">
+  <div class="purchase">
+    <a href="<html:rewrite action='/addbuyprint'/>" class="p-p">
+      <img src="{IMG_PATH}syz/images/sl_bjgjsyz_gwc.png">
+      <span>我要购买</span>
+    </a>
+    <a href="javascript:void(0);" class="p-e">
+      <img src="{IMG_PATH}syz/images/sl_bjgjsyz_wybz.png">
+      <span>我要办展</span>
+    </a>
+  </div>
+  <div class="shareBox clearfix">
+    <div class="bdsharebuttonbox" data-tag="share_1">
+      <a class="bds_qzone" data-cmd="qzone"></a>
+      <a class="bds_tsina" data-cmd="tsina"></a>
+      <a class="bds_tqq" data-cmd="tqq"></a>
+      <a class="bds_weixin" data-cmd="weixin"></a>
+      <a class="bds_renren" data-cmd="renren"></a>
+      <a class="Top" href="javascript:void(0);"></a>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="{JS_PATH}syz/js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="{JS_PATH}syz/js/idangerous.swiper.min.js"></script>
+
+<script type="text/javascript">
+
+$(function(){
+  /*===页头导航2===*/
+  $('.sl-header2 .Nav').find('.column').hover(function(){
+    $(this).find('.subnav').stop(true,false).slideDown();
+  },function(){
+    $(this).find('.subnav').stop(true,false).slideUp();
+  })
+
+  $('.sm-nav-open').click(function(){
+    $(this).toggleClass('sm-nav-open-on');
+    $(this).next().toggleClass('NavBox-show');
+  });
+
+});
+
+
+
+//配置工具、分享
+var Back_top = $('.Top').hide();
+$(window).scroll(function(){
+  if($(this).scrollTop() <= 0){
+    Back_top.fadeOut();
+  }else{
+    Back_top.fadeIn();
+  }
+});
+Back_top.click(function(){
+  var speed=200;//滑动的速度
+  $('body,html').animate({ scrollTop: 0 }, speed);
+  return false;
+});
+window._bd_share_config = {
+   "common": {
+    "bdSnsKey": {},
+    "bdText": "",
+    "bdMini": "2",
+    "bdMiniList": false,
+    "bdPic": "",
+    "bdStyle": "2",
+    "bdSize": "32"
+  },
+  "share": {}
+  }
+with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+
+//购买、办展
+$('.purchase a').eq(0).hover(function(){
+  $(this).addClass('on');
+},function(){
+  $(this).removeClass('on');
+})
+$('.purchase a').eq(1).hover(function(){
+  $(this).addClass('on');
+},function(){
+  $(this).removeClass('on');
+})
+
+</script>
+
+{template "content","footer"}

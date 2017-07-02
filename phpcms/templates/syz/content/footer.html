@@ -1,0 +1,25 @@
+<!-- 页脚 -->
+<div class="sl-footer2">
+    <div class="copyright container">
+        <img class="logo" src="{IMG_PATH}syz/images/sl_show_logo.jpg">
+        {pc:get sql="select catid,id from syz_company"}
+        {loop $data $val}
+        {pc:get sql="select address,phone,chuanzhen,email from syz_company_data where id=$val[id] "}
+        {loop $data $v}
+        <ul class="clearfix">
+            <li>地址：{$v[address]}</li>
+            <li>电话：{$v[phone]}</li>
+            <li>传真：{$v[chuanzhen]} </li>
+            <li>邮箱：{$v[email]}</li>
+            <li class="li5">Copyright © 2016 北京国际摄影周组委会办公室 All Right Reserved.</li>
+        </ul>}
+        {/loop}
+        {/pc}
+        {/loop}
+        {/pc}
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,300 @@
+        <!-- 页头导航2 -->
+        {template "content","header"}
+        <!---引入ckplayer--->
+        <script src="{WEB_PATH}ckplayer/ckplayer.js"></script>
+
+
+        <!-- 开幕活动 -->
+        <div class="bjgjsyz-kmhd">
+
+
+            <div class="banner-style">
+                <img class="pc-pic" src="{IMG_PATH}syz/images/sl-bjgjsyz-kmhd-pcbanner.jpg">
+                <img class="m-pic" src="{IMG_PATH}syz/images/sl-bjgjsyz-kmhd-pcbanner.jpg">
+                <div class="headline">
+                    <p class="tit-eg">Opening</p>
+                    <h3 class="tit-ch">北京摄影周开幕式</h3>
+                    {WEB_PATH}
+                    <p class="tit-i"><i class="line-left"></i>Photo Beijing 2017<i class="line-right"></i></p>
+                </div>
+            </div>
+
+            <div class="bjgjsyz-kmhd-main container">
+
+                <div class="jbxx itemBox">
+                    <h4 class="tit-h4">{$CATEGORYS[11][catname]}</h4>
+
+                    {pc:get sql="select * from syz_news where catid=11 order by inputtime desc" num="1"}
+                    <p class="tit-eg">Basic Information</p>
+                    {loop $data $val}
+                    <div class="conBox">
+                        {pc:get sql="select * from syz_news_data where id = $val[id]}
+                        {loop $data $v}
+                        <p class="txt">{$v[content]}</p>
+                        {/loop}
+                        {/pc}
+                    </div>
+                    {/loop}
+                    {/pc}
+                </div>
+
+
+                <div class="lcap itemBox">
+                    <h4 class="tit-h4">{$CATEGORYS[12][catname]}</h4>
+                    <!--p class="tit-eg">Arrangement</p-->
+                    {pc:get sql="select * from syz_news where catid=12 order by inputtime desc" num="1" }
+                    {loop $data $val}
+                    {pc:get sql="select * from syz_news_data where id=$val[id]"}
+                    <div class="conBox">
+                        {loop $data $v}
+                        <p class="txt">{$v[content]} </p>
+                        {/loop}
+                    </div>
+                    {/pc}
+                    {/loop}
+                    {/pc}
+                </div>
+
+
+
+                <div class="xctw itemBox">
+                    <h4 class="tit-h4">{$CATEGORYS[13][catname]}</h4>
+                    <p class="tit-eg">Scene Graphic</p>
+                    {pc:get sql="select * from syz_picture where catid=13" num="6"}
+                    <div class="conBox">
+                        <div class="xctw-swiper">
+                            <div class="wrapper">
+                                {loop $data $val}
+                                <div class="item">
+                                    <img src="{$val[thumb]}">
+                                    <p class="txt">{$val[description]}</p>
+                                </div>
+                                {/loop}
+                            </div>
+                            <div class="pagination"></div>
+                        </div>
+                        <div class="toggle-btn">
+                            <a class="arrow arrow-left" href="javascript:void(0);"><img src="{IMG_PATH}syz/images/sl-left-2.png"></a>
+                            <a class="arrow arrow-right" href="javascript:void(0);"><img src="{IMG_PATH}syz/images/sl-right-2.png"></a>
+                        </div>
+                    </div>
+                    {/pc}
+                </div>
+
+
+                <div class="kmhd-video itemBox">
+                    <h4 class="tit-h4">{$CATEGORYS[15][catname]}</h4>
+                    <p class="tit-eg">Video </p>
+                    <div class="conBox">
+                        <ul class="clearfix">
+
+                            {pc:get sql="select * from syz_video where catid=15" num="6"}
+                            {loop $data $val}
+                            <li class="item">
+                                <div class="cover">
+                                    <img class="pic" src="{$val[thumb]}">
+                                    <img class="play-btn" src="{IMG_PATH}syz/images/sl-play1.png">
+                                </div>
+                                <a class="video" href="javascript:void(0);">111</a>
+
+                                <p class="txt">{$val[description]}</p>
+                            </li>
+                            {/loop}
+                            {/pc}
+
+                        </ul>
+                        <a class="live-address" href="javascript:void(0);">直播地址<img
+                                src="{IMG_PATH}syz/images/sl-r-See.png"></a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- 工具、分享 -->
+        <div class="toolbar-r">
+            <div class="purchase">
+                <a href="<html:rewrite action='/addbuyprint'/>" class="p-p">
+                    <img src="{IMG_PATH}syz/images/sl_bjgjsyz_gwc.png">
+                    <span>我要购买</span>
+                </a>
+                <a href="javascript:void(0);" class="p-e">
+                    <img src="{IMG_PATH}syz/images/sl_bjgjsyz_wybz.png">
+                    <span>我要办展</span>
+                </a>
+            </div>
+            <div class="shareBox clearfix">
+                <div class="bdsharebuttonbox" data-tag="share_1">
+                    <a class="bds_qzone" data-cmd="qzone"></a>
+                    <a class="bds_tsina" data-cmd="tsina"></a>
+                    <a class="bds_tqq" data-cmd="tqq"></a>
+                    <a class="bds_weixin" data-cmd="weixin"></a>
+                    <a class="bds_renren" data-cmd="renren"></a>
+                    <a class="Top" href="javascript:void(0);"></a>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="{JS_PATH}syz/js/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript" src="{JS_PATH}syz/js/idangerous.swiper.min.js"></script>
+        <script type="text/javascript" src="http://zt.bjwmb.gov.cn/2017/sl_jq/ckplayer/ckplayer.js"></script>
+
+        <script type="text/javascript">
+
+            $(function () {
+                /*===页头导航2===*/
+                $('.sl-header2 .Nav').find('.column').hover(function () {
+                    $(this).find('.subnav').stop(true, false).slideDown();
+                }, function () {
+                    $(this).find('.subnav').stop(true, false).slideUp();
+                })
+
+                $('.sm-nav-open').click(function () {
+                    $(this).toggleClass('sm-nav-open-on');
+                    $(this).next().toggleClass('NavBox-show');
+                });
+
+                //现场图文
+                var win_W = $(window).width();
+                var _slidesPerView;
+
+                if (win_W < 768) {
+                    _slidesPerView = 1;
+                } else if (768 < win_W && win_W < 992) {
+                    _slidesPerView = 2;
+                } else if (win_W > 992) {
+                    _slidesPerView = 4;
+                }
+
+                var xctw = new Swiper('.xctw-swiper', {
+                    loop: false,
+                    //autoplay:3500,
+                    calculateHeight: true,
+                    updateOnImagesReady: true,
+                    resizeReInit: true,
+                    paginationClickable: true,
+                    slidesPerView: _slidesPerView,
+                    pagination: '.pagination',
+                    paginationElementClass: 'ms-swiper',
+                    paginationActiveClass: 'ms-active',
+                    paginationVisibleClass: 'ms-visible',
+                    wrapperClass: 'wrapper',
+                    slideClass: 'item'
+                });
+                $('.arrow-left').click(function () {
+                    xctw.swipePrev();
+                });
+                $('.arrow-right').click(function () {
+                    xctw.swipeNext();
+                });
+                $(window).resize(function () {
+                    win_W = $(this).width();
+                    if (win_W < 768) {
+                        _slidesPerView = 1;
+                    } else if (768 < win_W && win_W < 992) {
+                        _slidesPerView = 2;
+                    } else if (win_W > 992) {
+                        _slidesPerView = 4;
+                    }
+                    xctw.reInit();
+                });
+
+
+            });
+
+            $(function () {
+                // 视频播放
+                var videoBox = $('.kmhd-video .item');
+                var ck_play = videoBox.children('.cover');
+                var ck_video = videoBox.children('.video');
+                var video_w = videoBox.siblings('.item').children('.cover').width();
+                var video_h = videoBox.siblings('.item').children('.cover').height();
+
+                ck_play.each(function () {
+                    $(this).click(function () {
+                        var $indexs = $(this).index('.cover');
+                        var _a = $(this).next();
+                        var _link = _a.text();
+
+                        $(this).css('display', 'none');
+
+                        ck_video.each(function (i) {
+                            if (i == $indexs) {
+                                var thisID = 'vidoe' + ($indexs + 1);
+                                $(this).css('display', 'block').attr('id', thisID);
+                                _video(thisID, _link);
+                            }
+                        });
+                    });
+                });
+
+                function _video(thisID, _link) {
+                    var ck_data = {
+                        f: _link,
+                        c: 0,
+                        p: 1,
+                        v: 60,
+                        my_url: 'http://www.syz.com/ckplayer/ckplayer.swf'
+                    };
+
+                    var params = {
+                        bgcolor: '#FFF',
+                        allowFullScreen: true,
+                        allowScriptAccess: 'always',
+                        wmode: 'transparent'
+                    }
+
+                    var ck_swf = 'http://www.syz.com/ckplayer/ckplayer.swf';
+                    var ck_a1 = 'http://www.syz.com/ckplayer/ckplyer_a1';
+
+                    CKobject.embedSWF(ck_swf, thisID, ck_a1, video_w, video_h, ck_data, params);
+                }
+            })
+
+
+            //配置工具、分享
+            var Back_top = $('.Top').hide();
+            $(window).scroll(function () {
+                if ($(this).scrollTop() <= 0) {
+                    Back_top.fadeOut();
+                } else {
+                    Back_top.fadeIn();
+                }
+            });
+            Back_top.click(function () {
+                var speed = 200;//滑动的速度
+                $('body,html').animate({scrollTop: 0}, speed);
+                return false;
+            });
+            window._bd_share_config = {
+                "common": {
+                    "bdSnsKey": {},
+                    "bdText": "",
+                    "bdMini": "2",
+                    "bdMiniList": false,
+                    "bdPic": "",
+                    "bdStyle": "2",
+                    "bdSize": "32"
+                },
+                "share": {}
+            }
+            with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion=' + ~(-new Date() / 36e5)];
+
+            //购买、办展
+            $('.purchase a').eq(0).hover(function () {
+                $(this).addClass('on');
+            }, function () {
+                $(this).removeClass('on');
+            })
+            $('.purchase a').eq(1).hover(function () {
+                $(this).addClass('on');
+            }, function () {
+                $(this).removeClass('on');
+            })
+
+
+        </script>
+
+        {template "content","footer"}

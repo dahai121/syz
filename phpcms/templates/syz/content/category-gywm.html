@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="renderer" content="webkit">
+  <title>北京国际摄影周</title>
+
+  <link href="{CSS_PATH}syz/css/clear.css" rel="stylesheet">
+  <link href="{CSS_PATH}syz/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{CSS_PATH}syz/css/idangerous.swiper.css">
+  <link rel="stylesheet" type="text/css" href="{CSS_PATH}syz/css/lytebox.css">
+  <link href="{CSS_PATH}syz/css/syzStyle.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="{CSS_PATH}syz/bootstrap/js/html5shiv.min.js"></script>
+  <script src="{CSS_PATH}syz/bootstrap/js/respond.min.js"></script>
+  <![endif]-->
+  </head>
+<body>
+
+<!-- 页头导航2 -->
+{template "content","header"}
+
+<!-- 开幕活动 -->
+<div class="bjgjsyz-guwm">
+
+  <div class="banner-style new-edition-banner">
+    <img class="pc-pic" src="{IMG_PATH}syz/images/sl-bjgjsyz-guwm-pcbanner.jpg">
+    <img class="m-pic" src="{IMG_PATH}syz/images/sl-bjgjsyz-guwm-pcbanner.jpg">
+    <div class="headline">
+      <p class="tit-eg">About Us</p>
+      <h3 class="tit-ch"><span>{$CATEGORYS[$catid][catname]}</span></h3>
+      <p class="tit-i">Photo Beijing 2017</p>
+    </div>
+  </div>
+
+  <div class="bjgjsyz-guwm-main container">
+    <div class="row">
+
+      <div class="left-menu col-sm-3 col-md-2">
+        <h4 class="tit-h4">关于我们</h4>
+        <p class="tit-eg">About Us</p>
+        <ul>
+
+          {pc:get sql="select catname,url,catid,parentid from syz_category where parentid=$catid "}
+          {loop $data $key $val}
+            <li  class="{if $val[catid]==$catid}current{/if}" >
+                <a href="{$val[url]}">{$val[catname]}</a>
+            </li>
+          {/loop}
+          {/pc}
+
+        </ul>
+      </div>
+
+      <div class="right-content col-sm-8 col-md-9 col-md-offset-1 col-sm-offset-1">
+        <div class="clearfix">
+          <h5 class="tit-h5">北京国际摄影周2016简介</h5>
+          <div class="txtBox">
+            <p class="txt">北京国际摄影周是由中华人民共和国文化部、北京市人民政府主办，中国艺术摄影学会、中国摄影家协会、新华通讯社图片中心、北京歌华文化发展集团承办的大型摄影主题的公共文化活动，自2013年开始，每年10月在中华世纪坛举办。北京国际摄影周虽起步较晚，但得益于首都的全国文化中心、国际交往中心的区位优势，承办机构和组织的权威度和专业性以及摄影技术及设备的变革性普及、公众参与度高等因素，四年来已然赢得了业界的高度关注，成为具有较强影响力的国际摄影展会。</p>
+          <p class="txt">北京国际摄影周2016拟于2016年10月15日至10月23日举办，分为开幕活动、系列展览、摄影讲堂、摄影市场、特约活动五大板块，以中华世纪坛为主场地，另有多项展览、论坛和主题活动分布在6个城区20个站点举行。摄影周继续发挥优势，将国外精品摄影展“引进来”，使国内优秀展览“走出去”，展示国内其他摄影节优秀展览，推介北京国际摄影周展览赴其他省市展示，并促进国内外优秀摄影作品和展览的交流。通过搭建精品摄影艺术展览的展示平台、摄影从业者和爱好者的交流平台、国内外优秀摄影展览的推介平台和产品产权交易平台，力图在打造北京知名文化品牌的同时，提升北京影像文化的国际影响力。本届摄影周首倡“摄影节中节”概念，与国内外重要摄影节的合作，珍选各自优秀展览在对方摄影节中展出。</p>
+          <p class="txt">北京国际摄影周2016的主题是“影像•在场”。穿越了历史的“影像”连接起三种“在场”：摄影者的拍摄“在场”，批评者的解读“在场”，欣赏者的观看“在场”。北京国际摄影周为三者的交流提供了一个平台：见证历史，留存影像，表达观点，提供可能，这也是北京国际摄影周2016对摄影“在场”的表达。从2013年的“摄影•聚焦世界”、2014年的“视界•无界”、2015年的“影像•世纪”，到2016年的“影像•在场”，北京国际摄影周一直在不懈地叩击着镜头内外的广阔和深邃，力求成为有自身特色的、具有引领性和前瞻性、兼顾权威性和专业性、兼具社会公益性和市场运营价值的摄影艺术重要展示平台。</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+<!-- 工具、分享 -->
+<div class="toolbar-r">
+  <div class="purchase">
+    <a href="<html:rewrite action='/addbuyprint'/>" class="p-p">
+      <img src="{IMG_PATH}syz/images/sl_bjgjsyz_gwc.png">
+      <span>我要购买</span>
+    </a>
+    <a href="javascript:void(0);" class="p-e">
+      <img src="{IMG_PATH}syz/images/sl_bjgjsyz_wybz.png">
+      <span>我要办展</span>
+    </a>
+  </div>
+  <div class="shareBox clearfix">
+    <div class="bdsharebuttonbox" data-tag="share_1">
+      <a class="bds_qzone" data-cmd="qzone"></a>
+      <a class="bds_tsina" data-cmd="tsina"></a>
+      <a class="bds_tqq" data-cmd="tqq"></a>
+      <a class="bds_weixin" data-cmd="weixin"></a>
+      <a class="bds_renren" data-cmd="renren"></a>
+      <a class="Top" href="javascript:void(0);"></a>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="{JS_PATH}syz/js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="{JS_PATH}syz/js/idangerous.swiper.min.js"></script>
+
+<script type="text/javascript">
+
+$(function(){
+  /*===页头导航2===*/
+  $('.sl-header2 .Nav').find('.column').hover(function(){
+    $(this).find('.subnav').stop(true,false).slideDown();
+  },function(){
+    $(this).find('.subnav').stop(true,false).slideUp();
+  })
+
+  $('.sm-nav-open').click(function(){
+    $(this).toggleClass('sm-nav-open-on');
+    $(this).next().toggleClass('NavBox-show');
+  });
+
+});
+
+
+
+//配置工具、分享
+var Back_top = $('.Top').hide();
+$(window).scroll(function(){
+  if($(this).scrollTop() <= 0){
+    Back_top.fadeOut();
+  }else{
+    Back_top.fadeIn();
+  }
+});
+Back_top.click(function(){
+  var speed=200;//滑动的速度
+  $('body,html').animate({ scrollTop: 0 }, speed);
+  return false;
+});
+window._bd_share_config = {
+   "common": {
+    "bdSnsKey": {},
+    "bdText": "",
+    "bdMini": "2",
+    "bdMiniList": false,
+    "bdPic": "",
+    "bdStyle": "2",
+    "bdSize": "32"
+  },
+  "share": {}
+  }
+with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+
+//购买、办展
+$('.purchase a').eq(0).hover(function(){
+  $(this).addClass('on');
+},function(){
+  $(this).removeClass('on');
+})
+$('.purchase a').eq(1).hover(function(){
+  $(this).addClass('on');
+},function(){
+  $(this).removeClass('on');
+})
+</script>
+
+{template "content","footer"}
